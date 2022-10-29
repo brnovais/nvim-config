@@ -1,3 +1,6 @@
+-- Improve performance.
+require("performance")
+
 -- Set global options.
 require("options")
 
