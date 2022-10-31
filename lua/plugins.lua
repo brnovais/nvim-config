@@ -96,6 +96,17 @@ return require("packer").startup(function(use)
 	})
 
 	use({
+		-- Highly extendable fuzzy finder over lists.
+		"nvim-telescope/telescope.nvim",
+		tag = "0.1.0",
+		requires = {
+			-- Plenary: full; complete; entire; absolute; unqualified.
+			-- All the lua functions I don't want to write twice.
+			"nvim-lua/plenary.nvim",
+		},
+	})
+
+	use({
 		-- A blazing fast and easy to configure Neovim statusline written in Lua.
 		"nvim-lualine/lualine.nvim",
 		-- A lua fork of vim-devicons. This plugin provides

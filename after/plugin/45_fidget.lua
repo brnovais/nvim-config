@@ -1,6 +1,7 @@
 -- Plugins are only available after sync.
 local ok, fidget = pcall(require, "fidget")
-
-if ok then
-	fidget.setup({})
+if not ok then
+	return
 end
+
+fidget.setup({})
