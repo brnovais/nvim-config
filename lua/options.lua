@@ -1,6 +1,7 @@
 -- General visual (display) options.
 vim.opt.background = "dark"
 vim.opt.colorcolumn = "80,120"
+vim.opt.signcolumn = "yes"
 vim.opt.wrap = false
 
 -- Line numbers.

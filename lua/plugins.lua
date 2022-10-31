@@ -1,7 +1,6 @@
--- If you want to automatically install and set up packer.nvim
--- on any machine you clone your configuration to, add the
--- following snippet (which is due to @Iron-E and @khuedoan)
--- somewhere in your config before your first usage of packer.
+-- If you want to automatically install and set up packer.nvim on any machine you
+-- clone your configuration to, add the following snippet (which is due to @Iron-E
+-- and @khuedoan) somewhere in your config before your first usage of packer.
 local ensure_packer = function()
 	local fn = vim.fn
 	local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
@@ -27,29 +26,19 @@ end
 local packer_bootstrap = ensure_packer()
 
 return require("packer").startup(function(use)
-	-- Speed up loading Lua modules in Neovim to improve startup time.
-	-- It's recommended to put impatient.nvim before any other plugins.
+	-- Improve startup time for Neovim.
 	use({ "lewis6991/impatient.nvim" })
 
-	-- Inspired plugin/package management for Neovim that can manage itself.
+	-- A use-package inspired plugin manager for Neovim.
 	use({ "wbthomason/packer.nvim" })
 
-	-- Configs for the Nvim LSP client.
-	use({ "neovim/nvim-lspconfig" })
-
-	-- A completion engine plugin for neovim written in Lua.
 	use({
+		-- A completion engine plugin for neovim written in Lua.
 		"hrsh7th/nvim-cmp",
-		config = function()
-			require("config.cmp")
-		end,
 		requires = {
 			{
 				-- Snippet Engine for Neovim written in Lua.
 				"L3MON4D3/LuaSnip",
-				config = function()
-					require("config.luasnip")
-				end,
 				requires = {
 					-- Snippets collection for a set of different programming
 					-- languages for faster development.
@@ -69,12 +58,38 @@ return require("packer").startup(function(use)
 		},
 	})
 
-	-- A blazing fast and easy to configure Neovim statusline written in Lua.
 	use({
+		-- Quickstart configs for Nvim LSP.
+		"neovim/nvim-lspconfig",
+		requires = {
+			-- Portable package manager for Neovim that runs everywhere Neovim runs.
+			"williamboman/mason.nvim",
+			-- Extension to mason.nvim that makes it easier to use lspconfig
+			-- with mason.nvim.
+			"williamboman/mason-lspconfig.nvim",
+			{
+				-- Use Neovim as a language server to inject LSP diagnostics,
+				-- code actions, and more via Lua.
+				"jose-elias-alvarez/null-ls.nvim",
+				requires = {
+					-- Plenary: full; complete; entire; absolute; unqualified.
+					-- All the lua functions I don't want to write twice.
+					"nvim-lua/plenary.nvim",
+					-- Bridges mason.nvim with the null-ls plugin - making it
+					-- easier to use both plugins together.
+					"jayp0521/mason-null-ls.nvim",
+				},
+			},
+			-- Tools for better development in rust using neovim's builtin lsp.
+			"simrat39/rust-tools.nvim",
+			-- Standalone UI for nvim-lsp progress. Eye candy for the impatient.
+			"j-hui/fidget.nvim",
+		},
+	})
+
+	use({
+		-- A blazing fast and easy to configure Neovim statusline written in Lua.
 		"nvim-lualine/lualine.nvim",
-		config = function()
-			require("config.lualine")
-		end,
 		-- A lua fork of vim-devicons. This plugin provides
 		-- the same icons as well as colors for each icon.
 		requires = { "kyazdani42/nvim-web-devicons", opt = true },
@@ -92,6 +107,6 @@ return require("packer").startup(function(use)
 		require("packer").sync()
 
 		-- Let the user know that the first run is just to sync plugins.
-		print("All plugins synchronized, ignore (probably) all messages bellow and restart.")
+		print("Restart after plugin sync.")
 	end
 end)
