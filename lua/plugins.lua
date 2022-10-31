@@ -88,6 +88,14 @@ return require("packer").startup(function(use)
 	})
 
 	use({
+		-- Nvim Treesitter configurations and abstraction layer.
+		"nvim-treesitter/nvim-treesitter",
+		run = function()
+			require("nvim-treesitter.install").update({ with_sync = true })
+		end,
+	})
+
+	use({
 		-- A blazing fast and easy to configure Neovim statusline written in Lua.
 		"nvim-lualine/lualine.nvim",
 		-- A lua fork of vim-devicons. This plugin provides
