@@ -10,12 +10,14 @@ Make sure Neovim is installed.
 sudo apt-get install neovim
 ```
 
-Maybe it's worth it to install a newer version.
+Maybe it is worth installing a newer version.
 Check the [release](https://github.com/neovim/neovim/releases) page for updates.
 
 ```sh
-curl --location https://github.com/neovim/neovim/releases/download/v0.8.0/nvim-linux64.deb --output nvim-linux64.deb
+NEOVIM=v0.8.0
+curl -L https://github.com/neovim/neovim/releases/download/$NEOVIM/nvim-linux64.deb -o nvim-linux64.deb
 sudo apt install ./nvim-linux64.deb
+rm -rf nvim-linux64.deb
 ```
 
 # Configure
@@ -25,11 +27,4 @@ Restart Neovim and everything should be working properly.
 
 ```sh
 git clone --depth 1 https://github.com/brnovais/nvim-config.git ~/.config/nvim
-```
-
-This is usually not required, but the plugin manager can be manually installed.
-
-```sh
-git clone --depth=1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
-nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
 ```
