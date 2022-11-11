@@ -4,4 +4,4 @@ if not ok then
 	return
 end
 
-fidget.setup({})
+fidget.setup()
