@@ -1,14 +1,17 @@
 -- Plugins are only available after sync.
-local ok, nullls = pcall(require, "null-ls")
+local ok, null_ls = pcall(require, "null-ls")
 if not ok then
 	return
 end
 
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
-nullls.setup({
+null_ls.setup({
 	sources = {
-		require("null-ls").builtins.formatting.prettierd,
-		require("null-ls").builtins.formatting.stylua,
+		null_ls.builtins.diagnostics.pylint,
+		null_ls.builtins.formatting.black,
+		null_ls.builtins.formatting.gofmt,
+		null_ls.builtins.formatting.prettierd,
+		null_ls.builtins.formatting.stylua,
 	},
 	on_attach = function(client, bufnr)
 		if client.supports_method("textDocument/formatting") then
@@ -26,6 +29,8 @@ nullls.setup({
 
 require("mason-null-ls").setup({
 	ensure_installed = {
+		"pylint",
+		"black",
 		"prettierd",
 		"stylua",
 	},
