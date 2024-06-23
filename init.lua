@@ -1,3 +1,6 @@
+-- Improve performance.
+vim.loader.enable()
+
 -- Set global options.
 require("options")
 
