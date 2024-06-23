@@ -1,5 +1,5 @@
-# Created by https://www.toptal.com/developers/gitignore/api/git,linux,vim,windows
-# Edit at https://www.toptal.com/developers/gitignore?templates=git,linux,vim,windows
+# Created by https://www.toptal.com/developers/gitignore/api/git,linux,lua,vim,windows
+# Edit at https://www.toptal.com/developers/gitignore?templates=git,linux,lua,vim,windows
 
 ### Git ###
 # Created by git for backups. To disable backups in Git:
@@ -30,6 +30,49 @@
 
 # .nfs files are created when an open file is removed but is still being accessed
 .nfs*
+
+### Lua ###
+# Compiled Lua sources
+luac.out
+
+# luarocks build files
+*.src.rock
+*.zip
+*.tar.gz
+
+# Object files
+*.o
+*.os
+*.ko
+*.obj
+*.elf
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Libraries
+*.lib
+*.a
+*.la
+*.lo
+*.def
+*.exp
+
+# Shared objects (inc. Windows DLLs)
+*.dll
+*.so
+*.so.*
+*.dylib
+
+# Executables
+*.exe
+*.out
+*.app
+*.i*86
+*.x86_64
+*.hex
+
 
 ### Vim ###
 # Swap
@@ -77,4 +120,4 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
-# End of https://www.toptal.com/developers/gitignore/api/git,linux,vim,windows
+# End of https://www.toptal.com/developers/gitignore/api/git,linux,lua,vim,windows
