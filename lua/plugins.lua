@@ -13,4 +13,6 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
+	-- Soothing pastel theme for (Neo)vim.
+	{ "catppuccin/nvim", name = "catppuccin", priority = 1000 }
 })
