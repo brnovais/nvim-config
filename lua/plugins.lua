@@ -13,6 +13,14 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
+    {
+		-- A blazing fast and easy to configure Neovim statusline written in Lua.
+		"nvim-lualine/lualine.nvim",
+		-- A lua fork of vim-devicons. This plugin provides
+		-- the same icons as well as colors for each icon.
+		dependencies = { "nvim-tree/nvim-web-devicons" },
+	},
+
 	-- Soothing pastel theme for (Neo)vim.
 	{ "catppuccin/nvim", name = "catppuccin", priority = 1000 }
 })
