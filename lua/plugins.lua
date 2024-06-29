@@ -14,6 +14,17 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
     {
+        -- Quickstart configs for Nvim LSP.
+        'neovim/nvim-lspconfig',
+        dependencies = {
+            -- Portable package manager for Neovim that runs everywhere Neovim runs.
+            { 'williamboman/mason.nvim', config = true },
+            -- Extension to mason.nvim that makes it easier to use lspconfig with mason.nvim.
+            'williamboman/mason-lspconfig.nvim',
+        },
+    },
+
+    {
 		-- A blazing fast and easy to configure Neovim statusline written in Lua.
 		"nvim-lualine/lualine.nvim",
 		-- A lua fork of vim-devicons. This plugin provides
