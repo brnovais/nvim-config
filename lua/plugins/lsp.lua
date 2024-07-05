@@ -17,10 +17,6 @@ return { {
     -- Quickstart configs for Nvim LSP.
     "neovim/nvim-lspconfig",
 
-    -- Make sure we don't load this during startup.
-    lazy = true,
-    event = "InsertEnter",
-
     dependencies = {
         -- Portable package manager for Neovim that runs everywhere Neovim runs.
         "williamboman/mason.nvim",
