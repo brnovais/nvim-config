@@ -18,7 +18,9 @@ return { {
                 lsp_format = 'fallback',
             },
             formatters_by_ft = {
+                javascript = { { 'prettierd', 'prettier' } },
                 lua = { 'stylua' },
+                python = { 'isort', 'black' },
             },
         }
 

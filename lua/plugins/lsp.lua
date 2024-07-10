@@ -1,4 +1,5 @@
 local servers = {
+    clangd = {},
     lua_ls = {
         settings = {
             Lua = {
@@ -11,6 +12,9 @@ local servers = {
             },
         },
     },
+    pyright = {},
+    rust_analyzer = {},
+    tsserver = {},
 }
 
 return { {
@@ -30,11 +34,14 @@ return { {
                 local lspconfig = require('lspconfig')
                 local lsp_base_cap = lspconfig.util.default_config.capabilities
 
+                local ensure_installed = {}
+                for k in pairs(servers) do
+                    table.insert(ensure_installed, k)
+                end
+
                 local opts = {
                     automatic_installation = false,
-                    ensure_installed = {
-                        'lua_ls',
-                    },
+                    ensure_installed = ensure_installed,
                     handlers = {
                         function(server_name)
                             lspconfig[server_name].setup(

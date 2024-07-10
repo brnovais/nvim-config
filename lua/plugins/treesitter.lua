@@ -5,18 +5,22 @@ return { {
     build = ':TSUpdate',
     opts = {
         ensure_installed = {
-            'bash',
-            'diff',
+            'bash', 'diff',
+            'c', 'cpp',
+            'html', 'css', 'javascript', 'typescript',
             'lua', 'luadoc',
             'markdown',
+            'python',
+            'rust', 'toml',
             'vim', 'vimdoc',
         },
-        auto_install = false,
+        auto_install = true,
         sync_install = false,
 
         highlight = {
-            enable = true,
-            additional_vim_regex_highlighting = false,
+            enable = true, additional_vim_regex_highlighting = false,
         },
+
+        indent = { enable = true },
     },
 } }
