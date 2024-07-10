@@ -1,7 +1,7 @@
 -- General visual (display) options.
-vim.opt.background = "dark"
-vim.opt.colorcolumn = "80,120"
-vim.opt.signcolumn = "yes"
+vim.opt.background = 'dark'
+vim.opt.colorcolumn = '80,120'
+vim.opt.signcolumn = 'yes'
 vim.opt.cmdheight = 1
 vim.opt.scrolloff = 8
 vim.opt.wrap = false
@@ -12,6 +12,10 @@ vim.opt.relativenumber = true
 
 -- General editing options.
 vim.opt.smartindent = true
+
+-- General keyboard options.
+vim.g.mapleader = ' '
+vim.g.maplocalleader = ' '
 
 -- Tab pressing behavior.
 vim.opt.tabstop = 4

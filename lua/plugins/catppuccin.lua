@@ -1,7 +1,7 @@
 return { {
     -- Soothing pastel theme for (Neo)vim.
-    "catppuccin/nvim",
-    name = "catppuccin",
+    'catppuccin/nvim',
+    name = 'catppuccin',
 
     -- Make sure we load this during startup.
     lazy = false,
