@@ -1,29 +1,35 @@
-return { {
-    -- Find, Filter, Preview, Pick. All lua, all the time.
-    'nvim-telescope/telescope.nvim',
-    branch = '0.1.x',
+return {
+	-- Find, Filter, Preview, Pick. All lua, all the time.
+	"nvim-telescope/telescope.nvim",
+	branch = "0.1.x",
 
-    dependencies = {
-        --  All the lua functions I don't want to write twice.
-        'nvim-lua/plenary.nvim',
+	-- Lazy-loaded plugin.
+	lazy = true,
+	event = "VeryLazy",
+	cmd = "ConformInfo",
+	keys = function()
+		local builtin = require("telescope.builtin")
 
-        -- A lua fork of vim-devicons. This plugin provides
-        -- the same icons as well as colors for each icon.
-        'nvim-tree/nvim-web-devicons',
-    },
+		return {
+			{ "<leader>sh", builtin.help_tags, desc = "[S]earch [h]elp" },
+			{ "<leader>sk", builtin.keymaps, desc = "[S]earch [k]eymaps" },
+			{ "<leader>sf", builtin.find_files, desc = "[S]earch [f]iles" },
+			{ "<leader>ss", builtin.builtin, desc = "[S]earch [s]elect" },
+			{ "<leader>sw", builtin.grep_string, desc = "[S]earch [w]ord" },
+			{ "<leader>sg", builtin.live_grep, desc = "[S]earch by [g]rep" },
+			{ "<leader>sd", builtin.diagnostics, desc = "[S]earch [d]iagnostics" },
+			{ "<leader>sr", builtin.resume, desc = "[S]earch [r]esume" },
+			{ "<leader>s.", builtin.oldfiles, desc = "[S]earch recent files ('.' for repeat)" },
+			{ "<leader><leader>", builtin.buffers, desc = "[ ] Find existing buffers" },
+		}
+	end,
 
-    config = function()
-        local builtin = require('telescope.builtin')
+	dependencies = {
+		--  All the lua functions I don't want to write twice.
+		"nvim-lua/plenary.nvim",
 
-        vim.keymap.set('n', '<leader>sh', builtin.help_tags, { desc = '[S]earch [H]elp' })
-        vim.keymap.set('n', '<leader>sk', builtin.keymaps, { desc = '[S]earch [K]eymaps' })
-        vim.keymap.set('n', '<leader>sf', builtin.find_files, { desc = '[S]earch [F]iles' })
-        vim.keymap.set('n', '<leader>ss', builtin.builtin, { desc = '[S]earch [S]elect Telescope' })
-        vim.keymap.set('n', '<leader>sw', builtin.grep_string, { desc = '[S]earch current [W]ord' })
-        vim.keymap.set('n', '<leader>sg', builtin.live_grep, { desc = '[S]earch by [G]rep' })
-        vim.keymap.set('n', '<leader>sd', builtin.diagnostics, { desc = '[S]earch [D]iagnostics' })
-        vim.keymap.set('n', '<leader>sr', builtin.resume, { desc = '[S]earch [R]esume' })
-        vim.keymap.set('n', '<leader>s.', builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
-        vim.keymap.set('n', '<leader><leader>', builtin.buffers, { desc = '[ ] Find existing buffers' })
-    end,
-} }
+		-- A lua fork of vim-devicons. This plugin provides
+		-- the same icons as well as colors for each icon.
+		"nvim-tree/nvim-web-devicons",
+	},
+}

@@ -1,26 +1,41 @@
-return { {
-    -- Nvim Treesitter configurations and abstraction layer.
-    'nvim-treesitter/nvim-treesitter',
+return {
+	-- Nvim Treesitter configurations and abstraction layer.
+	"nvim-treesitter/nvim-treesitter",
+	version = "*",
 
-    build = ':TSUpdate',
-    opts = {
-        ensure_installed = {
-            'bash', 'diff',
-            'c', 'cpp',
-            'html', 'css', 'javascript', 'typescript',
-            'lua', 'luadoc',
-            'markdown',
-            'python',
-            'rust', 'toml',
-            'vim', 'vimdoc',
-        },
-        auto_install = true,
-        sync_install = false,
+	-- Lazy-loaded plugin.
+	lazy = true,
+	event = "VeryLazy",
 
-        highlight = {
-            enable = true, additional_vim_regex_highlighting = false,
-        },
+	build = ":TSUpdate",
 
-        indent = { enable = true },
-    },
-} }
+	opts = {
+		ensure_installed = {
+			"bash",
+			"diff",
+			"c",
+			"cpp",
+			"html",
+			"css",
+			"javascript",
+			"typescript",
+			"lua",
+			"luadoc",
+			"markdown",
+			"python",
+			"rust",
+			"toml",
+			"vim",
+			"vimdoc",
+		},
+		auto_install = true,
+		sync_install = false,
+
+		highlight = {
+			enable = true,
+			additional_vim_regex_highlighting = false,
+		},
+
+		indent = { enable = true },
+	},
+}
