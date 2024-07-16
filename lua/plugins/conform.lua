@@ -7,11 +7,8 @@ return {
 
 		-- Lazy-loaded plugin.
 		lazy = true,
-		-- Lazy-load on event.
 		event = "InsertEnter",
-		-- Lazy-load on command.
 		cmd = "ConformInfo",
-		-- Lazy-load on key mapping.
 		keys = {
 			{
 				"<leader>f",

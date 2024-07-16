@@ -1,22 +1,25 @@
-return { {
-    -- A blazing fast and easy to configure Neovim statusline written in Lua.
-    'nvim-lualine/lualine.nvim',
+return {
+	{
+		-- A blazing fast and easy to configure Neovim statusline written in Lua.
+		"nvim-lualine/lualine.nvim",
+		name = "lualine",
+		version = "*",
 
-    -- Make sure we load this during startup.
-    lazy = false,
+		-- Load this during startup.
+		lazy = false,
+		priority = 500,
 
-    dependencies = {
-        -- A lua fork of vim-devicons. This plugin provides
-        -- the same icons as well as colors for each icon.
-        'nvim-tree/nvim-web-devicons',
-    },
+		opts = {
+			options = {
+				globalstatus = true,
+				theme = "catppuccin",
+			},
+		},
 
-    opts = function()
-        local opts = {
-            globalstatus = true,
-            theme = 'catppuccin',
-        }
-
-        return opts
-    end,
-} }
+		dependencies = {
+			-- A lua fork of vim-devicons. This plugin provides
+			-- the same icons as well as colors for each icon.
+			"nvim-tree/nvim-web-devicons",
+		},
+	},
+}

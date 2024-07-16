@@ -1,15 +1,17 @@
-return { {
-    -- Soothing pastel theme for (Neo)vim.
-    'catppuccin/nvim',
-    name = 'catppuccin',
+return {
+	{
+		-- Soothing pastel theme for (Neo)vim.
+		"catppuccin/nvim",
+		name = "catppuccin",
+		version = "^1.7.0",
 
-    -- Make sure we load this during startup.
-    lazy = false,
-    -- Make sure to load this before all the other start plugins.
-    priority = 1000,
+		-- Load this before all the other start plugins.
+		lazy = false,
+		priority = 1000,
 
-    config = function()
-        -- Load the colorscheme here.
-        vim.cmd([[colorscheme catppuccin]])
-    end,
-} }
+		config = function()
+			-- Load the colorscheme after the plugin is loaded.
+			vim.cmd([[colorscheme catppuccin]])
+		end,
+	},
+}

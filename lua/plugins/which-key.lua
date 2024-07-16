@@ -1,15 +1,22 @@
-return { {
-    -- Create key bindings that stick. WhichKey is a lua plugin for
-    -- Neovim 0.5 that displays a popup with possible keybindings
-    -- of the command you started typing.
-    'folke/which-key.nvim',
+return {
+	{
+		-- Create key bindings that stick. WhichKey is a lua plugin for
+		-- Neovim 0.5 that displays a popup with possible keybindings
+		-- of the command you started typing.
+		"folke/which-key.nvim",
+		name = "which-key",
+		version = "^3.5.0",
 
-    -- Make sure we don't load this during startup.
-    lazy = true,
-    event = 'VeryLazy',
+		-- Lazy-loaded plugin.
+		lazy = true,
+		event = "VeryLazy",
 
-    init = function()
-        vim.o.timeout = true
-        vim.o.timeoutlen = 300
-    end,
-} }
+		opts = {},
+
+		init = function()
+			-- Displays which-key popup sooner.
+			vim.o.timeout = true
+			vim.o.timeoutlen = 300
+		end,
+	},
+}
