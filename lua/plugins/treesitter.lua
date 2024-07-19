@@ -10,24 +10,7 @@ return {
 	build = ":TSUpdate",
 
 	opts = {
-		ensure_installed = {
-			"bash",
-			"diff",
-			"c",
-			"cpp",
-			"html",
-			"css",
-			"javascript",
-			"typescript",
-			"lua",
-			"luadoc",
-			"markdown",
-			"python",
-			"rust",
-			"toml",
-			"vim",
-			"vimdoc",
-		},
+		ensure_installed = { "bash", "diff", "html", "lua", "luadoc", "markdown", "vim", "vimdoc" },
 		auto_install = true,
 		sync_install = false,
 
