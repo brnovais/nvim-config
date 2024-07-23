@@ -1,4 +1,5 @@
 return {
+	-- A lua powered greeter like vim-startify / dashboard-nvim.
 	"goolord/alpha-nvim",
 	version = "*",
 

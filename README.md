@@ -14,7 +14,7 @@ Maybe it is worth installing a newer version.
 Check the [release](https://github.com/neovim/neovim/releases) page for updates.
 
 ```sh
-NEOVIM=v0.9.5
+NEOVIM=v0.10.0
 curl -LO https://github.com/neovim/neovim/releases/download/$NEOVIM/nvim.appimage
 chmod u+x nvim.appimage
 ./nvim.appimage --appimage-extract

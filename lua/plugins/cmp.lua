@@ -1,6 +1,7 @@
 return {
 	-- A completion engine plugin for neovim written in Lua.
 	"hrsh7th/nvim-cmp",
+	version = "*",
 
 	-- Make sure we don't load this during startup.
 	lazy = true,

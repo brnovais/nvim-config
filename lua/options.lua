@@ -8,7 +8,7 @@ vim.opt.wrap = false
 
 -- Line numbers.
 vim.opt.number = true
-vim.opt.relativenumber = true
+vim.opt.relativenumber = false
 
 -- General editing options.
 vim.opt.smartindent = true
@@ -33,3 +33,6 @@ vim.opt.incsearch = true
 
 -- Miscellaneous.
 vim.opt.errorbells = false
+
+-- Environments (languages and tools) to install.
+vim.g.install_lua_env = true

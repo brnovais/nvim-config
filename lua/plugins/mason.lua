@@ -12,10 +12,16 @@ return {
 		"WhoIsSethDaniel/mason-tool-installer.nvim",
 		version = "*",
 
-		opts = {
-			ensure_installed = {
-				"stylua",
-			},
-		},
+		opts = function()
+			local ensure_installed = {}
+
+			if vim.g.install_lua_env then
+				table.insert(ensure_installed, "stylua")
+			end
+
+			return {
+				ensure_installed = ensure_installed,
+			}
+		end,
 	},
 }

@@ -6,7 +6,7 @@ return {
 	-- Lazy-loaded plugin.
 	lazy = true,
 	event = "VeryLazy",
-	cmd = "ConformInfo",
+	cmd = "Telescope",
 	keys = function()
 		local builtin = require("telescope.builtin")
 
