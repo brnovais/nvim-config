@@ -35,4 +35,49 @@ vim.opt.incsearch = true
 vim.opt.errorbells = false
 
 -- Environments (languages and tools) to install.
-vim.g.install_lua_env = true
+vim.g.envs = {
+  default = {
+    install = true,
+    mason = { "prettierd" },
+    treesitter = { "bash", "diff", "gitattributes", "gitignore", "markdown", "vim", "vimdoc" },
+  },
+  devops = {
+    install = false,
+    treesitter = { "dockerfile" },
+  },
+  files = {
+    install = false,
+    treesitter = { "json", "yaml", "xml" },
+  },
+  go = {
+    install = false,
+    treesitter = { "go" },
+  },
+  lua = {
+    install = false,
+    lsp = { "lua_ls" },
+    mason = { "stylua" },
+    treesitter = { "lua", "luadoc" },
+  },
+  node = {
+    install = false,
+    lsp = { "tsserver" },
+    treesitter = { "javascript", "typescript" },
+  },
+  python = {
+    install = false,
+    lsp = { "pyright" },
+    mason = { "isort", "black" },
+    treesitter = { "python" },
+  },
+  rust = {
+    install = false,
+    lsp = { "rust_analyzer" },
+    treesitter = { "rust" },
+  },
+  web = {
+    install = false,
+    lsp = { "tsserver" },
+    treesitter = { "astro", "css", "html", "javascript", "scss", "typescript" },
+  },
+}

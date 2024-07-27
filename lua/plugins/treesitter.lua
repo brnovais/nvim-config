@@ -12,11 +12,13 @@ return {
 	config = function()
 		local configs = require("nvim-treesitter.configs")
 
-		local ensure_installed = { "bash", "diff", "markdown", "vim", "vimdoc" }
-
-		if vim.g.install_lua_env then
-			table.insert(ensure_installed, "lua")
-			table.insert(ensure_installed, "luadoc")
+		local ensure_installed = {}
+		for _, env in pairs(vim.g.envs) do
+			if env.install and env.treesitter then
+				for _, v in pairs(env.treesitter) do
+					table.insert(ensure_installed, v)
+				end
+			end
 		end
 
 		configs.setup({

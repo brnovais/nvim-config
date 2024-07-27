@@ -1,21 +1,3 @@
-local servers = {
-	lua_ls = {
-		settings = {
-			Lua = {
-				completion = {
-					callSnippet = "Replace",
-				},
-				diagnostics = {
-					globals = { "vim" },
-				},
-			},
-		},
-	},
-	pyright = {},
-	rust_analyzer = {},
-	tsserver = {},
-}
-
 -- Global mappings.
 vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float)
 vim.keymap.set("n", "[d", vim.diagnostic.goto_prev)
@@ -25,6 +7,7 @@ vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist)
 return {
 	-- Quickstart configs for Nvim LSP.
 	"neovim/nvim-lspconfig",
+	version = "^0.1.8",
 
 	config = function()
 		vim.api.nvim_create_autocmd("LspAttach", {
@@ -70,8 +53,12 @@ return {
 			)
 
 			local ensure_installed = {}
-			for k in pairs(servers) do
-				table.insert(ensure_installed, k)
+			for _, env in pairs(vim.g.envs) do
+				if env.install and env.lsp then
+					for _, v in pairs(env.lsp) do
+						table.insert(ensure_installed, v)
+					end
+				end
 			end
 
 			local opts = {
@@ -79,9 +66,7 @@ return {
 				ensure_installed = ensure_installed,
 				handlers = {
 					function(server_name)
-						lspconfig[server_name].setup(
-							vim.tbl_deep_extend("force", lsp_base_cap, servers[server_name] or {})
-						)
+						lspconfig[server_name].setup(vim.tbl_deep_extend("force", lsp_base_cap, {}))
 					end,
 				},
 			}

@@ -14,9 +14,12 @@ return {
 
 		opts = function()
 			local ensure_installed = {}
-
-			if vim.g.install_lua_env then
-				table.insert(ensure_installed, "stylua")
+			for _, env in pairs(vim.g.envs) do
+				if env.install and env.mason then
+					for _, v in pairs(env.mason) do
+						table.insert(ensure_installed, v)
+					end
+				end
 			end
 
 			return {
