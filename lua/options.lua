@@ -8,7 +8,7 @@ vim.opt.wrap = false
 
 -- Line numbers.
 vim.opt.number = true
-vim.opt.relativenumber = false
+vim.opt.relativenumber = true
 
 -- General editing options.
 vim.opt.smartindent = true
@@ -36,48 +36,58 @@ vim.opt.errorbells = false
 
 -- Environments (languages and tools) to install.
 vim.g.envs = {
-  default = {
-    install = true,
-    mason = { "prettierd" },
-    treesitter = { "bash", "diff", "gitattributes", "gitignore", "markdown", "vim", "vimdoc" },
-  },
-  devops = {
-    install = false,
-    treesitter = { "dockerfile" },
-  },
-  files = {
-    install = false,
-    treesitter = { "json", "yaml", "xml" },
-  },
-  go = {
-    install = false,
-    treesitter = { "go" },
-  },
-  lua = {
-    install = false,
-    lsp = { "lua_ls" },
-    mason = { "stylua" },
-    treesitter = { "lua", "luadoc" },
-  },
-  node = {
-    install = false,
-    lsp = { "tsserver" },
-    treesitter = { "javascript", "typescript" },
-  },
-  python = {
-    install = false,
-    lsp = { "pyright" },
-    mason = { "isort", "black" },
-    treesitter = { "python" },
-  },
-  rust = {
-    install = false,
-    lsp = { "rust_analyzer" },
-    treesitter = { "rust" },
-  },
-  web = {
-    install = false,
-    lsp = { "tsserver" },
-    treesitter = { "astro", "css", "html", "javascript", "scss", "typescript" },
-  },
+	default = {
+		install = true,
+		mason = {
+			tools = { "prettierd" },
+		},
+		treesitter = { "bash", "diff", "vim", "vimdoc" },
+	},
+	devops = {
+		install = false,
+		treesitter = { "dockerfile" },
+	},
+	files = {
+		install = false,
+		treesitter = { "gitattributes", "gitignore", "json", "markdown", "toml", "yaml", "xml" },
+	},
+	go = {
+		install = false,
+		mason = {
+			dap = { "delve" },
+		},
+		treesitter = { "go" },
+	},
+	lua = {
+		install = false,
+		lsp = { "lua_ls" },
+		mason = {
+			tools = { "stylua" },
+		},
+		treesitter = { "lua", "luadoc" },
+	},
+	node = {
+		install = false,
+		lsp = { "tsserver" },
+		treesitter = { "javascript", "typescript" },
+	},
+	python = {
+		install = false,
+		lsp = { "pyright" },
+		mason = {
+			dap = { "debugpy" },
+			tools = { "isort", "black" },
+		},
+		treesitter = { "python" },
+	},
+	rust = {
+		install = false,
+		lsp = { "rust_analyzer" },
+		treesitter = { "rust" },
+	},
+	web = {
+		install = false,
+		lsp = { "tsserver" },
+		treesitter = { "astro", "css", "html", "javascript", "scss", "typescript" },
+	},
 }
