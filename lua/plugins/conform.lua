@@ -23,9 +23,14 @@ return {
 			lsp_format = "fallback",
 		},
 		formatters_by_ft = {
+			css = { { "prettierd", "prettier" } },
+			html = { { "prettierd", "prettier" } },
 			javascript = { { "prettierd", "prettier" } },
+			json = { { "prettierd", "prettier" } },
 			lua = { "stylua" },
+			markdown = { { "prettierd", "prettier" } },
 			python = { "isort", "black" },
+			yaml = { { "prettierd", "prettier" } },
 		},
 	},
 
